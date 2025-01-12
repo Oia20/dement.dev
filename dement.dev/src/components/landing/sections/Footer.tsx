@@ -12,7 +12,7 @@ export const Footer = () => {
                     className="flex flex-col md:flex-row justify-between items-center"
                 >
                     <div className="text-gray-400 mb-4 md:mb-0">
-                        © {new Date().getFullYear()} Your Name. All rights reserved.
+                        © {new Date().getFullYear()} Jacob Dement. All rights reserved.
                     </div>
                     <div className="flex space-x-6">
                         <a href="#" className="text-gray-400 hover:text-white transition-colors">

@@ -1,7 +1,6 @@
 import { Hero } from './sections/Hero'
 import { Navigation } from './sections/Navigation'
 import { Projects } from './sections/Projects'
-import { Skills } from './sections/Skills'
 import { Contact } from './sections/Contact'
 import { Footer } from './sections/Footer'
 
@@ -11,7 +10,6 @@ export const Landing = () => {
             <Navigation />
             <main className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <Hero/>
-                <Skills />
                 <Projects />
                 <Contact />
             </main>
