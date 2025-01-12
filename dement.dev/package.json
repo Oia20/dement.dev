@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.1.2",
+    "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.4",
     "@react-three/drei": "^9.120.6",
     "@react-three/fiber": "^8.17.12",
