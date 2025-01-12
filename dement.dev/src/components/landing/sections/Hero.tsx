@@ -64,7 +64,7 @@ export const Hero = () => {
                             transition={{ duration: 0.5, delay: 0.4 }}
                             className="text-xl md:text-2xl text-gray-400"
                         >
-                            A Full Stack Developer passionate about building elegant solutions to complex problems
+                            A Software Engineer who loves building useful, fun, and creative software! I make websites too!
                         </motion.p>
                         <motion.div
                             initial={{ opacity: 0 }}
@@ -92,16 +92,15 @@ export const Hero = () => {
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="relative order-first md:order-last h-[500px]"
+                        className="relative order-last md:order-last h-[500px]"
                     >
                         <div className="w-full h-full rounded-2xl overflow-hidden bg-gray-900/20">
                             <Canvas>
                                 <Scene />
                             </Canvas>
                         </div>
-                        {/* Decorative elements */}
-                        <div className="absolute -bottom-4 -right-4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl -z-10" />
-                        <div className="absolute -top-4 -left-4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl -z-10" />
+                        <div className="absolute -bottom-4 -right-4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl z-10" />
+                        <div className="absolute -top-4 -left-4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl z-10" />
                     </motion.div>
                 </div>
             </div>
