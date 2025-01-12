@@ -141,10 +141,10 @@ export const Hero = () => {
                 View Projects
               </a>
               <a
-                href="/your-resume.pdf"
+                href="#contact"
                 className="bg-transparent border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-full transition-colors"
               >
-                Download Resume
+                Say Hi!
               </a>
             </motion.div>
           </motion.div>
