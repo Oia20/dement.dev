@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const AnimatedDogLogo = () => {
+const AnimatedManLogo = () => {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const [eyePosition, setEyePosition] = useState({ left: { x: 168.5, y: 168.42 }, right: { x: 231.5, y: 168.42 } });
   const containerRef = useRef(null);
@@ -169,4 +169,4 @@ const AnimatedDogLogo = () => {
   );
 };
 
-export default AnimatedDogLogo;
+export default AnimatedManLogo;
