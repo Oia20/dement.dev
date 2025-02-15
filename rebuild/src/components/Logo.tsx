@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const DogLogo = () => {
+const AnimatedDogLogo = () => {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
-  const [eyePosition, setEyePosition] = useState({ left: { x: 0, y: 0 }, right: { x: 0, y: 0 } });
+  const [eyePosition, setEyePosition] = useState({ left: { x: 168.5, y: 168.42 }, right: { x: 231.5, y: 168.42 } });
   const containerRef = useRef(null);
 
   useEffect(() => {
-    const handleMouseMove = (event: MouseEvent | TouchEvent | PointerEvent | any) => {
+    const handleMouseMove = (event: MouseEvent | TouchEvent | PointerEvent | any): void => {
       if (!containerRef.current) return;
       
       // Get container bounds
@@ -14,114 +14,153 @@ const DogLogo = () => {
       const containerCenterX = bounds.left + bounds.width / 2;
       const containerCenterY = bounds.top + bounds.height / 2;
 
-      // Calculate angle between cursor and center
-      const deltaX = (event.clientX - containerCenterX);
-      const deltaY = (event.clientY - containerCenterY);
+      // Check if cursor is outside viewport
+      if (event.clientX <= 0 || event.clientY <= 0 || 
+          event.clientX >= window.innerWidth || 
+          event.clientY >= window.innerHeight) {
+        // Reset to default position
+        setRotation({ x: 0, y: 0 });
+        setEyePosition({
+          left: { x: 168.5, y: 168.42 },
+          right: { x: 231.5, y: 168.42 }
+        });
+        return;
+      }
 
-      // Calculate head rotation with increased vertical movement
-      const rotationX = (deltaY / bounds.height) * 25;
-      const rotationY = (deltaX / bounds.width) * 15;
+      // Get cursor position (works for both mouse and touch)
+      const clientX = event.clientX || (event.touches && event.touches[0].clientX);
+      const clientY = event.clientY || (event.touches && event.touches[0].clientY);
+
+      // Calculate angle between cursor and center
+      const deltaX = (clientX - containerCenterX);
+      const deltaY = (clientY - containerCenterY);
+
+      // Calculate head rotation with increased movement
+      const rotationX = (deltaY / bounds.height) * 5; // Increased from 15
+      const rotationY = (deltaX / bounds.width) * 5;  // Increased from 15
 
       setRotation({
         x: Math.max(-25, Math.min(25, rotationX)),
-        y: Math.max(-15, Math.min(15, rotationY))
+        y: Math.max(-25, Math.min(25, rotationY))
       });
 
-      // Calculate eye movement
-      const leftEyeBase = { x: 170.06, y: 130.82 };
-      const rightEyeBase = { x: 216.06, y: 130.82 };
-
-      const eyeMovementScale = 1.5;
+      // Calculate eye movement with reduced scale
+      const eyeMovementScale = .5; // Reduced from 2
       const eyeX = (deltaX / bounds.width) * eyeMovementScale;
       const eyeY = (deltaY / bounds.height) * eyeMovementScale;
 
       setEyePosition({
         left: {
-          x: leftEyeBase.x + eyeX,
-          y: leftEyeBase.y + eyeY
+          x: 168.5 + eyeX,
+          y: 168.42 + eyeY
         },
         right: {
-          x: rightEyeBase.x + eyeX,
-          y: rightEyeBase.y + eyeY
+          x: 231.5 + eyeX,
+          y: 168.42 + eyeY
         }
       });
     };
 
+    // Add event listeners for both mouse and touch events
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleMouseMove, { passive: true });
+    window.addEventListener('mouseleave', () => {
+      setRotation({ x: 0, y: 0 });
+      setEyePosition({
+        left: { x: 168.5, y: 168.42 },
+        right: { x: 231.5, y: 168.42 }
+      });
+    });
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleMouseMove);
+      window.removeEventListener('mouseleave', handleMouseMove);
+    };
   }, []);
 
   return (
     <div
       ref={containerRef}
-      className="flex justify-center items-center"
-      style={{ width: '100px', height: '100px', overflow: 'visible' }}
+      className="flex justify-center items-center w-full h-full"
+      style={{ overflow: 'visible' }}
     >
       <svg
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
         viewBox="0 0 300 300"
         shapeRendering="geometricPrecision"
         textRendering="geometricPrecision"
-        style={{ backgroundColor: 'transparent', maxWidth: '100%' }}
+        style={{
+          transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+          transition: 'transform 0.1s ease-out'
+        }}
       >
-        <g transform="translate(-45.975006 -64.398964)">
-          <g
-            id="untitled-u-head"
-            style={{
-              transform: `rotate3d(${rotation.x}, ${rotation.y}, 0, ${Math.sqrt(rotation.x * rotation.x + rotation.y * rotation.y)}deg)`,
-              transformOrigin: 'center center', // Ensures the rotation is around the center
-              transformBox: 'fill-box',
-              transition: 'transform 0.1s ease-out'
-            }}
-          >
-            <g id="untitled-u-ears">
-              <path
-                d="M215.65,87.51c3.3-6.86,35.25-26.71,40.11-22.26s-4.51,46.74-16.49,56C228.33,127,203,107.17,215.65,87.51Z"
-                fill="#282f36"
-              />
-              <path
-                d="M171.21,87.51C167.91,80.65,136,60.8,131.1,65.25s4.51,46.74,16.49,56c10.94,5.75,36.29-14.08,23.62-33.74Z"
-                fill="#282f36"
-              />
-            </g>
+        <g transform="matrix(1.21255 0 0 1.436339-93.789046-95.537147)">
+          <g transform="translate(1.05484 0)">
+            <circle r="19.5" transform="translate(262.25 180.57)" fill="#ffc57d" />
+            <circle r="19.5" transform="translate(137.75 180.57)" fill="#ffc57d" />
             <path
-              d="M239.39,127.07c.33-10.5.67-17.5-7.83-30.17-8.24-12.28-25.72-13.12-38.17-13.16h-.67c-12.45,0-29.93.88-38.17,13.16-8.5,12.67-8.17,19.67-7.83,30.17s-6.67,25-2.83,34.5c3.75,9.3,22.85,19.07,48.83,19.47h.67c26-.41,45.08-10.17,48.83-19.47c3.84-9.5-3.16-24-2.83-34.5Z"
-              fill="#333b45"
+              d="M189,85.49h22c28.990374.016559,52.484485,23.519621,52.49,52.51v56.07c0,30.773306-24.946694,55.72-55.72,55.72h-15.55c-30.773306,0-55.72-24.946694-55.72-55.72v-56.07c.005519-28.994281,23.50572-52.498959,52.5-52.51Z"
+              transform="translate(-1.24 0)"
+              fill="#ffc57d"
             />
             <path
-              d="M219.22,157c.05-5.26-16.75-11.23-19.75-19.39s6.13-22.61,9.92-30.61c3.57-7.52,2.28-16.44-.09-22.2-5.269966-.739622-10.588899-1.073935-15.91-1h-.67c-5.321101-.073935-10.640034.260378-15.91,1-2.37,5.76-3.66,14.68-.09,22.2c3.79,8,12.92,22.46,9.92,30.62s-19.8,14.13-19.75,19.39c.06,6,4.63,16.4,12.36,23c4.463746.667114,8.967152,1.034603,13.48,1.1h.67c4.512848-.065397,9.016254-.432886,13.48-1.1c7.72-6.63,12.28-17.01,12.34-23.01Z"
-              fill="#f5e4c4"
+              d="M189.44,207.14c2.187309,3.714044,6.146374,6.025788,10.455912,6.10533s8.351214-2.084532,10.674088-5.71533"
+              fill="none"
+              stroke="#eb952a"
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeMiterlimit="10"
             />
-            <g id="untitled-u-eyes" style={{ transition: 'transform 0.05s ease-out' }}>
-              <circle r="5" transform={`translate(${eyePosition.left.x} ${eyePosition.left.y})`} />
-              <circle r="5" transform={`translate(${eyePosition.right.x} ${eyePosition.right.y})`} />
+            <path
+              d="M206.78,187.11c-1.419143-2.363024-3.954822-3.829029-6.710774-3.879839s-5.343945,1.320732-6.849226,3.629839"
+              fill="none"
+              stroke="#eb952a"
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeMiterlimit="10"
+            />
+            {/* Animated eyes */}
+            <g>
+              <ellipse
+                rx="6.88"
+                ry="7.43"
+                transform={`translate(${eyePosition.left.x} ${eyePosition.left.y})`}
+                style={{ transition: 'transform 0.1s ease-out' }}
+              />
+              <ellipse
+                rx="6.88"
+                ry="7.43"
+                transform={`translate(${eyePosition.right.x} ${eyePosition.right.y})`}
+                style={{ transition: 'transform 0.1s ease-out' }}
+              />
             </g>
-            <g id="untitled-u-mouth">
-              <g id="untitled-u-mouth2">
-                <path
-                  d="M178.75,162.81c3.62,6.33,15.24,4.74,14-4.74"
-                  fill="none"
-                  stroke="#e0bf7e"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeMiterlimit="10"
-                />
-              </g>
-              <g id="untitled-u-mouth3">
-                <path
-                  d="M207.36,162.84c-3.62,6.33-15.24,4.74-14-4.74"
-                  fill="none"
-                  stroke="#e0bf7e"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeMiterlimit="10"
-                />
-              </g>
+            <g transform="translate(-.419997 0)">
+              <line
+                x1="219.84"
+                y1="143.66"
+                x2="243.17"
+                y2="143.66"
+                fill="none"
+                stroke="#ce8b28"
+                strokeWidth="12"
+                strokeLinecap="round"
+                strokeMiterlimit="10"
+              />
+              <line
+                x1="156.83"
+                y1="143.66"
+                x2="180.16"
+                y2="143.66"
+                fill="none"
+                stroke="#ce8b28"
+                strokeWidth="12"
+                strokeLinecap="round"
+                strokeMiterlimit="10"
+              />
             </g>
             <path
-              id="untitled-u-nose"
-              d="M201.29,150.23c.12-4.19-3.1-3.82-8.23-3.81s-8.36-.38-8.23,3.81s2.87,8.39,8.22,8.6v0c5.37-.2,8.12-4.45,8.24-8.6Z"
+              d="M257.95,152.33v32.85c-.058472,17.102082-13.273851,31.276044-30.33,32.53v-7.44c.083519-10.634988-8.435716-19.341851-19.07-19.49h-17.09c-10.634284.148149-19.153519,8.855012-19.07,19.49v7.44c-17.059971-1.254254-30.276743-15.434068-30.33-32.54v-32.84c-6.082944,7.169898-9.421397,16.26736-9.42,25.67v39.3c.076891,26.477753,21.522247,47.923109,48,48h38.72c26.477753-.076891,47.923109-21.522247,48-48v-39.3c.00419-9.401378-3.330666-18.498694-9.41-25.67Zm-74,58.73c-.044439-4.603938,3.646175-8.375075,8.25-8.43h15.6c4.603825.054925,8.294439,3.826062,8.25,8.43v6.75v0v5.72c-.00037,1.492172-.393544,2.957954-1.14,4.25v0c-.995899,1.456297-2.64574,2.327982-4.41,2.33h-1.43c-2.952441-.005503-5.344497-2.397559-5.35-5.35v-1.44c.016952-1.542874.702922-3.002385,1.88-4h-11.2c1.177078.997615,1.863048,2.457126,1.88,4v1.44c-.005503,2.952441-2.397559,5.344497-5.35,5.35h-1.43c-1.896957-.006681-3.647975-1.019226-4.6-2.66-.643589-1.207287-.986614-2.551947-1-3.92v-12.48Z"
+              fill="#ce8b28"
             />
           </g>
         </g>
@@ -130,4 +169,4 @@ const DogLogo = () => {
   );
 };
 
-export default DogLogo;
+export default AnimatedDogLogo;
