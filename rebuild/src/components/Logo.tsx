@@ -2,13 +2,17 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const AnimatedManLogo = () => {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
-  const [eyePosition, setEyePosition] = useState({ left: { x: 168.5, y: 168.42 }, right: { x: 231.5, y: 168.42 } });
+  const [eyePosition, setEyePosition] = useState({
+    left: { x: 168.5, y: 168.42 },
+    right: { x: 231.5, y: 168.42 }
+  });
+  const [blink, setBlink] = useState(false); // Track blink state
+  const [headNod, setHeadNod] = useState(0); // Track head nod (up/down)
   const containerRef = useRef(null);
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent | TouchEvent | PointerEvent | any): void => {
       if (!containerRef.current) return;
-      
       // Get container bounds
       const bounds = containerRef.current.getBoundingClientRect();
       const containerCenterX = bounds.left + bounds.width / 2;
@@ -72,10 +76,25 @@ const AnimatedManLogo = () => {
       });
     });
 
+    // Set interval for random blinking
+    const blinkInterval = setInterval(() => {
+      setBlink(true);
+      setTimeout(() => setBlink(false), 300); // Blink duration (close for 300ms)
+    }, Math.random() * 5000 + 3000); // Random interval between 3-8 seconds
+
+    // Set interval for random head nod
+    const nodInterval = setInterval(() => {
+      const randomNod = Math.random() > 0.5 ? Math.random() * 3 : -Math.random() * 3; // Nod up/down (3-5 degrees)
+      setHeadNod(randomNod);
+      setTimeout(() => setHeadNod(0), 500); // Reset the nod after 500ms
+    }, Math.random() * 5000 + 3000); // Random interval between 3-8 seconds
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('touchmove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseMove);
+      clearInterval(blinkInterval); // Clean up blink interval
+      clearInterval(nodInterval); // Clean up nod interval
     };
   }, []);
 
@@ -90,7 +109,7 @@ const AnimatedManLogo = () => {
         shapeRendering="geometricPrecision"
         textRendering="geometricPrecision"
         style={{
-          transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+          transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) rotateX(${headNod}deg)`, // Apply head nod (up/down)
           transition: 'transform 0.1s ease-out'
         }}
       >
@@ -123,15 +142,15 @@ const AnimatedManLogo = () => {
             <g>
               <ellipse
                 rx="6.88"
-                ry="7.43"
+                ry={blink ? "3.5" : "7.43"} // Adjust for blink effect
                 transform={`translate(${eyePosition.left.x} ${eyePosition.left.y})`}
-                style={{ transition: 'transform 0.1s ease-out' }}
+                style={{ transition: 'transform 0.1s ease-out, ry 0.3s ease-in-out' }}
               />
               <ellipse
                 rx="6.88"
-                ry="7.43"
+                ry={blink ? "3.5" : "7.43"} // Adjust for blink effect
                 transform={`translate(${eyePosition.right.x} ${eyePosition.right.y})`}
-                style={{ transition: 'transform 0.1s ease-out' }}
+                style={{ transition: 'transform 0.1s ease-out, ry 0.3s ease-in-out' }}
               />
             </g>
             <g transform="translate(-.419997 0)">

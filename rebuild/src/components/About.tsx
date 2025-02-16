@@ -1,5 +1,9 @@
+import { useStore } from '@nanostores/react';
+import { theme } from '../store/theme';
 
 export const About = () => {
+    const $theme = useStore(theme);
+
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center sm:py-12">
           <div className="max-w-2xl text-left justify-center">
