@@ -2,9 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import { About } from '../components/About'
 import {Nav} from '../components/Nav'
+// import {ThemeProvider} from '../components/themeContext'
 ---
 
 <Layout>
-	<Nav client:load/>
-	<About client:load/>
+		<Nav client:load/>
+		<About client:load/>
 </Layout>

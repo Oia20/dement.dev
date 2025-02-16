@@ -1,16 +1,30 @@
 ---
 import '../styles/global.css';
+
 ---
 
 <!doctype html>
 
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Dement.dev</title>
+		<script is:inline>
+			document.documentElement.classList.toggle(
+			"dark",
+			localStorage.theme === "dark" ||
+				(!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+			);
+			// Whenever the user explicitly chooses light mode
+			// localStorage.theme = "light";
+			// Whenever the user explicitly chooses dark mode
+			// localStorage.theme = "dark";
+			// Whenever the user explicitly chooses to respect the OS preference
+			// localStorage.removeItem("theme");
+		</script>
 	</head>
 	<body>
 		<slot />
