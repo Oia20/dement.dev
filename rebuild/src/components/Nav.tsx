@@ -3,8 +3,8 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 
 export const Nav = () => {
   return (
-    <nav className="transition duration-500 ease-in-out dark:bg-gray-900 bg-gray-300 text-gray-100 flex py-4 px-8 sm:px-12 lg:px-16">
-      <div className="flex items-center gap-8">
+    <nav className="transition duration-500 ease-in-out dark:bg-gray-900 bg-gray-300 text-gray-100 py-4 px-8 sm:px-12 lg:px-16 flex justify-center">
+      <div className="max-w-xl w-full flex items-center justify-between gap-8">
         <div className="h-[50px] w-[50px] rounded">
           <Logo />
         </div>
