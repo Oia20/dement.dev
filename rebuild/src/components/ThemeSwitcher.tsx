@@ -34,7 +34,7 @@ export const ThemeSwitcher = () => {
     return (
         <div className="flex items-center gap-2">
             <button className="" onClick={toggleTheme}>
-                <div className={`w-6 h-6 rounded-full theme-icon ${theme ? 'loaded' : ''}`}>
+                <div className={`cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 w-6 h-6 rounded theme-icon ${theme ? 'loaded' : ''}`}>
                     {theme !== 'dark' ? (
                         <svg
                             id="light"
