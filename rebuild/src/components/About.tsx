@@ -8,7 +8,7 @@ export const About = () => {
               Jacob Dement
             </h1>
             
-            <h2 className="text-xl text-gray-600 mb-8 dark:text-zinc-200">
+            <h2 className="text-xl text-gray-600 mb-8 dark:text-zinc-200 italic">
               Software Engineer
             </h2>
             
