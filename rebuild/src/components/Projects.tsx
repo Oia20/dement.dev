@@ -1,13 +1,18 @@
+// TODO: Add multi category capability to projects.
+// TODO: Custmize UI for project/github links.
+
 import React, { useState } from 'react';
 
 export const Projects = () => {
     const [selectedCategory, setSelectedCategory] = useState('Featured');
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const projects = [
         {
-            name: "Project One",
-            description: "Description of Project One goes here. Lorem ipsum dollar sit Lorem ipsum dolar sit Lorem ipsum dolar sit Lorem ipsum dolar sit Lorem ipsum dolar sit Lorem ipsum dolar sit Lorem ipsum dolar sit Lorem ipsum dolar sit Lorem ipsum dolar sit Lorem ipsum dolar sit Lorem ipsum dolar sit Lorem ipsum dolar sit Lorem ipsum dolar sit",
-            link: "https://github.com/JacobDement/Project-One",
+            name: "ExtrudeUI",
+            description: "A 3D React component library enabling developers to add 3D elements to their web applications with ease.",
+            github: "https://github.com/Oia20/ExtrudeUI",
+            link: "https://extrudeui.com/",
             category: "Featured"
         },
         {
@@ -29,7 +34,7 @@ export const Projects = () => {
 
     return (
         <div className="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center sm:py-12">
-          <div className="max-w-prose text-left justify-center">
+            <div className="max-w-prose text-left justify-center">
                 <div className="space-y-6">
                     {/* Header Section */}
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
@@ -38,36 +43,55 @@ export const Projects = () => {
                         </h1>
                         
                         <div className="flex items-center gap-4">
-                            {/* Custom Select with dropdown arrow using CSS */}
+                            {/* Custom Dropdown */}
                             <div className="relative">
-                                <select
-                                    className="appearance-none bg-gray-100 dark:bg-zinc-800 text-gray-900 dark:text-gray-100 
-                                             px-4 py-2 pr-8 rounded-lg border border-gray-200 dark:border-zinc-700
-                                             focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
-                                             transition-all duration-200 max-w-prose"
-                                    value={selectedCategory}
-                                    onChange={(e) => setSelectedCategory(e.target.value)}
+                                <button
+                                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                                    className="flex items-center justify-between w-full bg-gray-100 dark:bg-zinc-800 
+                                             text-gray-900 dark:text-gray-100 px-4 py-2 rounded-lg
+                                             border border-gray-200 dark:border-zinc-700
+                                             focus:outline-none focus:ring-2 focus:ring-blue-500
+                                             transition-all duration-200"
                                 >
-                                    {categories.map(category => (
-                                        <option key={category} value={category}>{category}</option>
-                                    ))}
-                                </select>
-                                {/* Custom dropdown arrow using CSS */}
-                                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
-                                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <span>{selectedCategory}</span>
+                                    <svg 
+                                        className={`ml-2 h-4 w-4 transform transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}
+                                        xmlns="http://www.w3.org/2000/svg" 
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                    >
                                         <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                                     </svg>
+                                </button>
+
+                                {/* Dropdown Menu */}
+                                <div 
+                                    className={`absolute z-10 w-full mt-1 bg-white dark:bg-zinc-800 
+                                              border border-gray-200 dark:border-zinc-700 rounded-lg
+                                              shadow-lg transform transition-all duration-200 origin-top
+                                              ${isDropdownOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}`}
+                                >
+                                    {categories.map(category => (
+                                        <button
+                                            key={category}
+                                            onClick={() => {
+                                                setSelectedCategory(category);
+                                                setIsDropdownOpen(false);
+                                            }}
+                                            className="w-full px-4 py-2 text-left text-gray-900 dark:text-gray-100
+                                                     hover:bg-gray-100 dark:hover:bg-zinc-700
+                                                     transition-colors duration-200
+                                                     first:rounded-t-lg last:rounded-b-lg"
+                                        >
+                                            {category}
+                                        </button>
+                                    ))}
                                 </div>
                             </div>
-
-                            <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg 
-                                           transition-colors duration-200 font-medium text-sm">
-                                View All Projects
-                            </button>
                         </div>
                     </div>
 
-                    {/* Projects Grid with CSS transitions */}
+                    {/* Projects Grid */}
                     <div className="">
                         {filteredProjects.map((project, index) => (
                             <div
@@ -85,21 +109,32 @@ export const Projects = () => {
                                 <p className="text-gray-600 dark:text-zinc-300 mb-4">
                                     {project.description}
                                 </p>
-                                <a 
-                                    href={project.link}
-                                    className="text-blue-500 hover:text-blue-600 transition-colors duration-200"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    View Project →
-                                </a>
+                                <div>
+                                    {project.github && (
+                                        <a 
+                                            href={project.github}
+                                            className="text-blue-500 hover:text-blue-600 transition-colors duration-200"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            View on GitHub →
+                                        </a>
+                                    )}
+                                    <a 
+                                        href={project.link}
+                                        className="text-blue-500 hover:text-blue-600 transition-colors duration-200"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        View Project →
+                                    </a>
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
             </div>
 
-            {/* Add the keyframes for the fade-in-up animation */}
             <style>{`
                 @keyframes fadeInUp {
                     from {
