@@ -1,4 +1,3 @@
-// TODO: Add multi category capability to projects.
 // TODO: Custmize UI for project/github links.
 
 import React, { useState } from 'react';
@@ -13,7 +12,7 @@ export const Projects = () => {
             description: "A 3D React component library enabling developers to add 3D elements to their web applications with ease.",
             github: "https://github.com/Oia20/ExtrudeUI",
             link: "https://extrudeui.com/",
-            category: "Featured"
+            category: ["Featured", "React"]
         },
         {
             name: "Project Two",
@@ -29,8 +28,8 @@ export const Projects = () => {
         }
     ];
 
-    const categories = ["Featured", "Node.js", "C#"];
-    const filteredProjects = projects.filter(project => project.category === selectedCategory);
+    const categories = ["Featured", "Node.js", "C#", "React"];
+    const filteredProjects = projects.filter(project => project.category.includes(selectedCategory));
 
     return (
         <div className="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center sm:py-12">
@@ -51,7 +50,7 @@ export const Projects = () => {
                                              text-gray-900 dark:text-gray-100 px-4 py-2 rounded-lg
                                              border border-gray-200 dark:border-zinc-700
                                              focus:outline-none focus:ring-2 focus:ring-blue-500
-                                             transition-all duration-200"
+                                             transition-all duration-200 hover:cursor-pointer"
                                 >
                                     <span>{selectedCategory}</span>
                                     <svg 
