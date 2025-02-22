@@ -49,7 +49,7 @@ export const Projects = () => {
                                     className="flex items-center justify-between w-full bg-gray-100 dark:bg-zinc-800 
                                              text-gray-900 dark:text-gray-100 px-4 py-2 rounded-lg
                                              border border-gray-200 dark:border-zinc-700
-                                             focus:outline-none focus:ring-2 focus:ring-blue-500
+                                             focus:outline-none focus:ring-2 focus:ring-zinc-300 dark:focus:ring-zinc-500
                                              transition-all duration-200 hover:cursor-pointer"
                                 >
                                     <span>{selectedCategory}</span>
@@ -108,7 +108,7 @@ export const Projects = () => {
                                 <p className="text-gray-600 dark:text-zinc-300 mb-4">
                                     {project.description}
                                 </p>
-                                <div>
+                                <div className='flex justify-end gap-4'>
                                     {project.github && (
                                         <a 
                                             href={project.github}
@@ -125,7 +125,7 @@ export const Projects = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        View Project →
+                                        Visit Website →
                                     </a>
                                 </div>
                             </div>
