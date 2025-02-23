@@ -9,13 +9,13 @@ export const Nav = () => {
           <Logo />
         </div>
         <div className="flex gap-4">
-          <a href="/" className="text-sm font-light sm:text-lg dark:text-gray-400">
+          <a href="/" className="text-sm font-light sm:text-lg dark:text-gray-400 hover:underline">
             Home
           </a>
-          <a href="/" className="font-light text-sm sm:text-lg dark:text-gray-400">
+          <a href="/" className="font-light text-sm sm:text-lg dark:text-gray-400 hover:underline">
             About
           </a>
-          <a href="/" className="font-light text-sm sm:text-lg dark:text-gray-400">
+          <a href="/" className="font-light text-sm sm:text-lg dark:text-gray-400 hover:underline">
             Contact
           </a>
           <ThemeSwitcher />

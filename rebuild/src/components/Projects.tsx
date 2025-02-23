@@ -1,11 +1,9 @@
-// TODO: Custmize UI for project/github links.
-
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 export const Projects = () => {
     const [selectedCategory, setSelectedCategory] = useState('Featured');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+    const dropdownRef = useRef<HTMLDivElement>(null);
     const projects = [
         {
             name: "ExtrudeUI",
@@ -31,6 +29,24 @@ export const Projects = () => {
     const categories = ["Featured", "Node.js", "C#", "React"];
     const filteredProjects = projects.filter(project => project.category.includes(selectedCategory));
 
+    const handleDropdownToggle = () => {
+        setIsDropdownOpen(prevState => !prevState);
+    };
+
+    const handleCategorySelect = (category: any) => {
+        setSelectedCategory(category);
+        setIsDropdownOpen(false);  // Close the dropdown after selecting a category
+    };
+
+    const handleBlur = (event: any) => {
+        // Delay the closing of the dropdown to allow the item to be selected before losing focus
+        setTimeout(() => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.relatedTarget)) {
+                setIsDropdownOpen(false);
+            }
+        }, 100);
+    };
+
     return (
         <div className="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center sm:py-12">
             <div className="max-w-prose text-left justify-center">
@@ -40,17 +56,17 @@ export const Projects = () => {
                         <h1 className="text-2xl font-bold text-gray-900 dark:text-zinc-50">
                             Projects
                         </h1>
-                        
+
                         <div className="flex items-center gap-4">
                             {/* Custom Dropdown */}
-                            <div className="relative">
+                            <div className="relative" ref={dropdownRef} onBlur={handleBlur}>
                                 <button
-                                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                                    onClick={handleDropdownToggle}
                                     className="flex items-center justify-between w-full bg-gray-100 dark:bg-zinc-800 
                                              text-gray-900 dark:text-gray-100 px-4 py-2 rounded-lg
                                              border border-gray-200 dark:border-zinc-700
                                              focus:outline-none focus:ring-2 focus:ring-zinc-300 dark:focus:ring-zinc-500
-                                             transition-all duration-200 hover:cursor-pointer"
+                                             transition-all duration-200 hover:cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-700"
                                 >
                                     <span>{selectedCategory}</span>
                                     <svg 
@@ -67,20 +83,18 @@ export const Projects = () => {
                                 <div 
                                     className={`absolute z-10 w-full mt-1 bg-white dark:bg-zinc-800 
                                               border border-gray-200 dark:border-zinc-700 rounded-lg
-                                              shadow-lg transform transition-all duration-200 origin-top
+                                              shadow-lg transform transition-all duration-200 origin-top hover:cursor-pointer
                                               ${isDropdownOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}`}
                                 >
                                     {categories.map(category => (
                                         <button
                                             key={category}
-                                            onClick={() => {
-                                                setSelectedCategory(category);
-                                                setIsDropdownOpen(false);
-                                            }}
+                                            onClick={() => handleCategorySelect(category)}
                                             className="w-full px-4 py-2 text-left text-gray-900 dark:text-gray-100
                                                      hover:bg-gray-100 dark:hover:bg-zinc-700
                                                      transition-colors duration-200
-                                                     first:rounded-t-lg last:rounded-b-lg"
+                                                     first:rounded-t-lg last:rounded-b-lg
+                                                     hover:cursor-pointer"
                                         >
                                             {category}
                                         </button>
