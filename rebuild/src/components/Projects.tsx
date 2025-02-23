@@ -48,11 +48,11 @@ export const Projects = () => {
     };
 
     return (
-        <div className="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center sm:py-12">
+        <div className="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center sm:py-12 pt-12">
             <div className="max-w-prose text-left justify-center">
                 <div className="space-y-6">
                     {/* Header Section */}
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex sm:flex-row sm:items-center justify-between">
                         <h1 className="text-2xl font-bold text-gray-900 dark:text-zinc-50">
                             Projects
                         </h1>
@@ -110,8 +110,7 @@ export const Projects = () => {
                             <div
                                 key={project.name}
                                 className="opacity-0 translate-y-4 animate-fade-in-up 
-                                         shadow-sm transition-all duration-300
-                                         hover:shadow-md"
+                                         transition-all duration-300"
                                 style={{
                                     animation: `fadeInUp 0.5s ease-out ${index * 0.1}s forwards`
                                 }}
