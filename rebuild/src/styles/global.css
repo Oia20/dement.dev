@@ -1,3 +1,7 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+.social-icon .fill-current {
+    fill: currentColor;
+}
