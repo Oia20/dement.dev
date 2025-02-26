@@ -6,28 +6,69 @@ export const Projects = () => {
     const dropdownRef = useRef<HTMLDivElement>(null);
     const projects = [
         {
+            name: "Formbee",
+            description: "An open-source form-backend that has been used by thousands of developers.",
+            link: "https://formbee.dev/",
+            github: "https://github.com/Formbee/Formbee",
+            category: ["Angular", "Node.js", "All"]
+        },
+        {
+            name: "Artist Portfolio CMS",
+            description: "A portfolio website I built for my partner with a custom CMS built from scratch.",
+            link: "https://rosaliasart.com/",
+            github: "https://github.com/Oia20/artPortfolio",
+            category: ["Angular", ".NET", "All"]
+        },
+        {
+            name: "Refresh Stays",
+            description: "A short term rental property website that I built for a freelance client. It's SEO friendly and built using React, and Astro.",
+            link: "https://refreshmuskegon.pages.dev/",
+            category: ["Featured", "React", "All"]
+        },
+        {
             name: "ExtrudeUI",
             description: "A React component library enabling developers to add 3D elements to their web applications with ease.",
             github: "https://github.com/Oia20/ExtrudeUI",
             link: "https://extrudeui.com/",
-            category: ["Featured", "React"]
+            category: ["Featured", "React", "All"]
         },
         {
             name: "AirTally",
             description: "Web app for counting/tallying anything. It's built with Next.js, and has sleek UI/UX.",
             github: "https://github.com/Oia20/AirTally",
             link: "https://airtally.vercel.app/",
-            category: ["Featured","React", "Next.js"]
+            category: ["Featured","React", "Next.js", "All"]
         },
         {
             name: "3D Portfolio",
             description: "A 3D portfolio website which used to be my portfolio before I moved to using this website. I think it's impressive and fun nonetheless so I wanted to share it here.",
-            link: "https://github.com/JacobDement/Project-Three",
-            category: ["Featured", "React"]
+            link: "https://3d.dement.dev",
+            github: "https://github.com/Oia20/personalPortfolio",
+            category: ["Featured", "React", "All"]
+        },
+        {
+            name: "CropSQL",
+            description: "A free and open-source resource for learning SQL. It's a website which has you manage a farm via a terminal where I build sql/terminal logic from scratch.",
+            link: "https://oia20.github.io/CropSQL/",
+            github: "https://github.com/Oia20/CropSQL",
+            category: [".NET", "All"]
+        },
+        {
+            name: "Pop A Lock",
+            description: "An open-source daily puzzle game where you attempt to open a lock with a limited number of guesses. (Wordle with hints and numbers instead of letters)",
+            link: "https://popalock.dement.dev/",
+            github: "https://github.com/Oia20/PopALockDaily",
+            category: ["React", "Node.js", "All"]
+        },
+        {
+            name: "Land Aquisition Website",
+            description: "A website I made for a freelance client which aids them in land acquisition.",
+            link: "https://acreandlot.com/",
+            category: ["All"]
         }
     ];
 
-    const categories = ["Featured", "Node.js", "C#", "React"];
+    const categories = ["Featured", "Node.js", ".NET", "React", "Angular", "All"];
     const filteredProjects = projects.filter(project => project.category.includes(selectedCategory));
 
     const handleDropdownToggle = () => {
@@ -36,11 +77,10 @@ export const Projects = () => {
 
     const handleCategorySelect = (category: any) => {
         setSelectedCategory(category);
-        setIsDropdownOpen(false);  // Close the dropdown after selecting a category
+        setIsDropdownOpen(false); 
     };
 
     const handleBlur = (event: any) => {
-        // Delay the closing of the dropdown to allow the item to be selected before losing focus
         setTimeout(() => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.relatedTarget)) {
                 setIsDropdownOpen(false);
@@ -52,14 +92,12 @@ export const Projects = () => {
         <div id="projects" className="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center py-12 pt-12">
             <div className="max-w-prose text-left justify-center">
                 <div className="space-y-6">
-                    {/* Header Section */}
                     <div className="flex sm:flex-row items-center justify-between">
                         <h1 className="text-2xl font-bold text-gray-900 dark:text-zinc-50">
                             Projects
                         </h1>
 
                         <div className="flex items-center gap-4 my-4">
-                            {/* Custom Dropdown */}
                             <div className="relative" ref={dropdownRef} onBlur={handleBlur}>
                                 <button
                                     onClick={handleDropdownToggle}
@@ -81,10 +119,9 @@ export const Projects = () => {
                                     </svg>
                                 </button>
 
-                                {/* Dropdown Menu */}
                                 <div 
                                     className={`absolute z-10 w-full mt-1 bg-white dark:bg-zinc-800 
-                                              border border-gray-200 dark:border-zinc-700 rounded-lg
+                                              border border-gray-200 dark:border-zinc-700 rounded-lg min-w-[100px]
                                               shadow-lg transform transition-all duration-200 origin-top hover:cursor-pointer
                                               ${isDropdownOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}`}
                                 >
@@ -106,7 +143,6 @@ export const Projects = () => {
                         </div>
                     </div>
 
-                    {/* Projects Grid */}
                     <div className="">
                         {filteredProjects.map((project, index) => (
                             <div
@@ -118,7 +154,7 @@ export const Projects = () => {
                                     animation: `fadeInUp 0.5s ease-out ${index * 0.1}s forwards`
                                 }}
                             >
-                                <h2 className="text-lg font-semibold text-gray-900 dark:text-zinc-100 mb-2">
+                                <h2 className="text-lg font-semibold text-gray-900 dark:text-zinc-100 mb-2 mt-2">
                                     {project.name}
                                 </h2>
                                 <p className="text-gray-600 dark:text-zinc-300 mb-2">
@@ -137,7 +173,6 @@ export const Projects = () => {
                                         </p>
                                         <div className="relative w-4 h-4">
                                             <div className="arrow-container">
-                                            {/* Left arrow */}
                                                 <svg
                                                 viewBox="0 0 300 300"
                                                 shapeRendering="geometricPrecision"
@@ -164,7 +199,6 @@ export const Projects = () => {
                                                 </g>
                                                 </svg>
 
-                                                {/* Center arrow */}
                                                 <svg
                                                 viewBox="0 0 300 300"
                                                 shapeRendering="geometricPrecision"
@@ -191,7 +225,6 @@ export const Projects = () => {
                                                 </g>
                                                 </svg>
 
-                                                {/* Right arrow */}
                                                 <svg
                                                 viewBox="0 0 300 300"
                                                 shapeRendering="geometricPrecision"
@@ -234,7 +267,6 @@ export const Projects = () => {
                                         </p>
                                         <div className="relative w-4 h-4">
                                             <div className="arrow-container">
-                                            {/* Left arrow */}
                                                 <svg
                                                 viewBox="0 0 300 300"
                                                 shapeRendering="geometricPrecision"
@@ -261,7 +293,6 @@ export const Projects = () => {
                                                 </g>
                                                 </svg>
 
-                                                {/* Center arrow */}
                                                 <svg
                                                 viewBox="0 0 300 300"
                                                 shapeRendering="geometricPrecision"
@@ -288,7 +319,6 @@ export const Projects = () => {
                                                 </g>
                                                 </svg>
 
-                                                {/* Right arrow */}
                                                 <svg
                                                 viewBox="0 0 300 300"
                                                 shapeRendering="geometricPrecision"

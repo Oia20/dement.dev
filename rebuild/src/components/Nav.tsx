@@ -12,7 +12,7 @@ export const Nav = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-transparent bg-opacity-20 transition duration-500 ease-in-out dark:bg-transparent dark:bg-opacity-20 text-gray-900 py-4 px-8 sm:px-12 lg:px-16 flex justify-center">
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-transparent bg-opacity-20 transition duration-500 ease-in-out dark:bg-transparent dark:bg-opacity-20 text-gray-900 py-4 px-8 sm:px-12 lg:px-16 flex justify-center max-w-screen">
       <div className="max-w-xl w-full flex items-center justify-between gap-8">
         <div onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="h-[50px] w-[50px] rounded hover:cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
           <Logo />
