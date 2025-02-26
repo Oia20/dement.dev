@@ -27,14 +27,14 @@ export const Work = () => {
             <h2 className="text-md font-bold text-gray-600 mt-6 dark:text-zinc-200">
               Formbee
             </h2>
-            <p className="text-zinc-300 leading-relaxed max-w-prose italic">
+            <p className="dark:text-zinc-300 text-gray-600 leading-relaxed max-w-prose italic">
                 Founder/Software Engineer
             </p>
-            <p className="text-zinc-300 leading-relaxed max-w-prose mb-4 italic">
+            <p className="dark:text-zinc-300 text-gray-600 leading-relaxed max-w-prose mb-4 italic">
                 May 2024 - Present
             </p>
             
-            <p className="text-zinc-300 leading-relaxed max-w-prose">
+            <p className="dark:text-zinc-300 text-gray-600 leading-relaxed max-w-prose">
               I founded, build, and currently maintain Formbee, an open-source form-backend that has been used by thousands of developers.
               Formbee's public GitHub repository is currently at {starCount} stars and growing.  
             </p>
@@ -212,14 +212,14 @@ export const Work = () => {
             <h2 className="text-md font-bold text-gray-600 mt-4 dark:text-zinc-200">
               RAB
             </h2>
-            <p className="text-zinc-300 leading-relaxed max-w-prose italic">
+            <p className="dark:text-zinc-300 text-gray-600 leading-relaxed max-w-prose italic">
                 Contruction Laborer
             </p>
-            <p className="text-zinc-300 leading-relaxed max-w-prose mb-4 italic">
+            <p className="dark:text-zinc-300 text-gray-600 leading-relaxed max-w-prose mb-4 italic">
                 June 2022 - July 2024
             </p>
             
-            <p className="text-zinc-300 leading-relaxed max-w-prose">
+            <p className="dark:text-zinc-300 text-gray-600 leading-relaxed max-w-prose">
               While with RAB I worked on a variety of diverse teams on construction projects throughout the USA. My time in construction 
               helped me to strengthen my communication, collaboration, and problem-solving skills.
             </p>

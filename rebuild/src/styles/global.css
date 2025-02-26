@@ -2,6 +2,19 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  --nav-padding-color-light: oklch(0.985 0.002 247.839);
+}
+
+body {
+  background-color: var(--nav-padding-color-light);
+  transition: all 0.25s ease-in-out;
+}
+
+.dark body {
+  background-color: var(--nav-padding-color-dark);
+}
+
 .social-icon .fill-current {
-    fill: currentColor;
+  fill: currentColor;
 }
