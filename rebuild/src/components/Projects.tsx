@@ -49,7 +49,7 @@ export const Projects = () => {
     };
 
     return (
-        <div className="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center sm:py-12 pt-12">
+        <div id="projects" className="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center sm:py-12 pt-12">
             <div className="max-w-prose text-left justify-center">
                 <div className="space-y-6">
                     {/* Header Section */}

@@ -6,8 +6,8 @@
 - Responsiveness improvements
 - Improve light theming
 - Spacing adjustments
-- Nav corrections, and scroll to correct section
+- X Nav corrections, and scroll to correct section
 - Cursor follower.
 - Add all projects
-- Add all work
-- x Reword my about.
+- X Add all work
+- X Reword my about.
