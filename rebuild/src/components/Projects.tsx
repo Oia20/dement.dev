@@ -7,16 +7,17 @@ export const Projects = () => {
     const projects = [
         {
             name: "ExtrudeUI",
-            description: "A 3D React component library enabling developers to add 3D elements to their web applications with ease.",
+            description: "A React component library enabling developers to add 3D elements to their web applications with ease.",
             github: "https://github.com/Oia20/ExtrudeUI",
             link: "https://extrudeui.com/",
             category: ["Featured", "React"]
         },
         {
-            name: "Project Two",
-            description: "Description of Project Two.",
-            link: "https://github.com/JacobDement/Project-Two",
-            category: "Node.js"
+            name: "AirTally",
+            description: "Web app for counting/tallying anything. It's built with Next.js, and has sleek UI/UX.",
+            github: "https://github.com/Oia20/AirTally",
+            link: "https://airtally.vercel.app/",
+            category: ["React", "Next.js"]
         },
         {
             name: "Project Three",
@@ -110,7 +111,8 @@ export const Projects = () => {
                             <div
                                 key={project.name}
                                 className="opacity-0 translate-y-4 animate-fade-in-up 
-                                         transition-all duration-300"
+                                         transition-all duration-300 mb-2 pb-2
+                                         border-b border-gray-200 dark:border-zinc-800"
                                 style={{
                                     animation: `fadeInUp 0.5s ease-out ${index * 0.1}s forwards`
                                 }}
@@ -118,7 +120,7 @@ export const Projects = () => {
                                 <h2 className="text-lg font-semibold text-gray-900 dark:text-zinc-100 mb-2">
                                     {project.name}
                                 </h2>
-                                <p className="text-gray-600 dark:text-zinc-300 mb-4">
+                                <p className="text-gray-600 dark:text-zinc-300 mb-2">
                                     {project.description}
                                 </p>
                                 <div className='flex justify-end gap-4'>
