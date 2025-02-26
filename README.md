@@ -3,11 +3,8 @@
 
 ## TODO ON REBUILD
 
-- X Responsiveness improvements
-- X Improve light theming
-- X Spacing adjustments
-- X Nav corrections, and scroll to correct section
+
 - Cursor follower.
-- Add all projects
-- X Add all work
-- X Reword my about.
+- SVG not showing in nav.
+- improve spacing of projects.
+- Them switcher is being buggy.
