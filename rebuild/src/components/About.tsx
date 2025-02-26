@@ -13,10 +13,12 @@ export const About = () => {
             </h2>
             
             <p className="text-zinc-300 leading-relaxed max-w-prose">
-              Hey, I'm Jacob Dement, a Software Engineer passionate about building user-friendly, impactful, and creative software solutions. Since 2021, I've been developing software, starting with computer vision and automation, and now primarily focusing on web development. I thrive on solving complex problems and delivering high-quality, scalable applications.
+              Hey, I'm Jacob Dement, a Software Engineer from Louisiana with a love for building user-friendly, useful and creative software.
             </p>
             <p className="text-zinc-300 leading-relaxed max-w-prose mt-4">
-              With experience in both open-source projects and professional environments, I’ve contributed to platforms adopted by thousands of users and optimized systems for cost-efficiency and performance. I’m always eager to learn, adapt, and explore new technologies to create innovative solutions.
+              Since 2021 I've been shipping software to thousands of users across a variety of industries and tech stacks. Beyond software, I have a 
+              background in construction, and in my free time I enjoy spending time with family and friends, music,
+              chess, reading, and too many other interests to list.
             </p>
           </div>
         </div>

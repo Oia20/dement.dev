@@ -7,7 +7,7 @@
 - Improve light theming
 - Spacing adjustments
 - Nav corrections, and scroll to correct section
-- Curson follower.
+- Cursor follower.
 - Add all projects
 - Add all work
-- Reword my about.
+- x Reword my about.
