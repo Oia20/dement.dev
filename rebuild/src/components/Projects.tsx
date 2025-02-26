@@ -17,13 +17,13 @@ export const Projects = () => {
             description: "Web app for counting/tallying anything. It's built with Next.js, and has sleek UI/UX.",
             github: "https://github.com/Oia20/AirTally",
             link: "https://airtally.vercel.app/",
-            category: ["React", "Next.js"]
+            category: ["Featured","React", "Next.js"]
         },
         {
-            name: "Project Three",
-            description: "Description of Project Three.",
+            name: "3D Portfolio",
+            description: "A 3D portfolio website which used to be my portfolio before I moved to using this website. I think it's impressive and fun nonetheless so I wanted to share it here.",
             link: "https://github.com/JacobDement/Project-Three",
-            category: "C#"
+            category: ["Featured", "React"]
         }
     ];
 
@@ -75,6 +75,7 @@ export const Projects = () => {
                                         xmlns="http://www.w3.org/2000/svg" 
                                         viewBox="0 0 20 20"
                                         fill="currentColor"
+
                                     >
                                         <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                                     </svg>
@@ -148,13 +149,17 @@ export const Projects = () => {
                                                     width="141.795482"
                                                     height="10.701546"
                                                     transform="matrix(.750432 0.660948-.660948 0.750432 100.332654 44.266147)"
-                                                    fill="#d2dbed"
+                                                    fill="currentColor"
+
+
                                                     />
                                                     <rect
                                                     width="141.795482"
                                                     height="10.701546"
                                                     transform="matrix(.687963-.781105 0.750432 0.660948 94.987956 248.660691)"
-                                                    fill="#d2dbed"
+                                                    fill="currentColor"
+
+
                                                     />
                                                 </g>
                                                 </svg>
@@ -171,13 +176,17 @@ export const Projects = () => {
                                                     width="141.795482"
                                                     height="10.701546"
                                                     transform="matrix(.750432 0.660948-.660948 0.750432 100.332654 44.266147)"
-                                                    fill="#d2dbed"
+                                                    fill="currentColor"
+
+
                                                     />
                                                     <rect
                                                     width="141.795482"
                                                     height="10.701546"
                                                     transform="matrix(.687963-.781105 0.750432 0.660948 94.987956 248.660691)"
-                                                    fill="#d2dbed"
+                                                    fill="currentColor"
+
+
                                                     />
                                                 </g>
                                                 </svg>
@@ -194,13 +203,17 @@ export const Projects = () => {
                                                     width="141.795482"
                                                     height="10.701546"
                                                     transform="matrix(.750432 0.660948-.660948 0.750432 137.619946 44.266147)"
-                                                    fill="#d2dbed"
+                                                    fill="currentColor"
+
+
                                                     />
                                                     <rect
                                                     width="141.795482"
                                                     height="10.701546"
                                                     transform="matrix(.687963-.781105 0.750432 0.660948 132.275248 248.660691)"
-                                                    fill="#d2dbed"
+                                                    fill="currentColor"
+
+
                                                     />
                                                 </g>
                                                 </svg>
@@ -233,13 +246,17 @@ export const Projects = () => {
                                                     width="141.795482"
                                                     height="10.701546"
                                                     transform="matrix(.750432 0.660948-.660948 0.750432 100.332654 44.266147)"
-                                                    fill="#d2dbed"
+                                                    fill="currentColor"
+
+
                                                     />
                                                     <rect
                                                     width="141.795482"
                                                     height="10.701546"
                                                     transform="matrix(.687963-.781105 0.750432 0.660948 94.987956 248.660691)"
-                                                    fill="#d2dbed"
+                                                    fill="currentColor"
+
+
                                                     />
                                                 </g>
                                                 </svg>
@@ -256,13 +273,17 @@ export const Projects = () => {
                                                     width="141.795482"
                                                     height="10.701546"
                                                     transform="matrix(.750432 0.660948-.660948 0.750432 100.332654 44.266147)"
-                                                    fill="#d2dbed"
+                                                    fill="currentColor"
+
+
                                                     />
                                                     <rect
                                                     width="141.795482"
                                                     height="10.701546"
                                                     transform="matrix(.687963-.781105 0.750432 0.660948 94.987956 248.660691)"
-                                                    fill="#d2dbed"
+                                                    fill="currentColor"
+
+
                                                     />
                                                 </g>
                                                 </svg>
@@ -279,13 +300,17 @@ export const Projects = () => {
                                                     width="141.795482"
                                                     height="10.701546"
                                                     transform="matrix(.750432 0.660948-.660948 0.750432 137.619946 44.266147)"
-                                                    fill="#d2dbed"
+                                                    fill="currentColor"
+
+
                                                     />
                                                     <rect
                                                     width="141.795482"
                                                     height="10.701546"
                                                     transform="matrix(.687963-.781105 0.750432 0.660948 132.275248 248.660691)"
-                                                    fill="#d2dbed"
+                                                    fill="currentColor"
+
+
                                                     />
                                                 </g>
                                                 </svg>

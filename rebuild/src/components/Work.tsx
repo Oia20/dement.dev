@@ -62,13 +62,17 @@ export const Work = () => {
                             width="141.795482"
                             height="10.701546"
                             transform="matrix(.750432 0.660948-.660948 0.750432 100.332654 44.266147)"
-                            fill="#d2dbed"
+                            fill="currentColor"
+
+
                             />
                             <rect
                             width="141.795482"
                             height="10.701546"
                             transform="matrix(.687963-.781105 0.750432 0.660948 94.987956 248.660691)"
-                            fill="#d2dbed"
+                            fill="currentColor"
+
+
                             />
                         </g>
                         </svg>
@@ -85,13 +89,17 @@ export const Work = () => {
                             width="141.795482"
                             height="10.701546"
                             transform="matrix(.750432 0.660948-.660948 0.750432 100.332654 44.266147)"
-                            fill="#d2dbed"
+                            fill="currentColor"
+
+
                             />
                             <rect
                             width="141.795482"
                             height="10.701546"
                             transform="matrix(.687963-.781105 0.750432 0.660948 94.987956 248.660691)"
-                            fill="#d2dbed"
+                            fill="currentColor"
+
+
                             />
                         </g>
                         </svg>
@@ -108,13 +116,15 @@ export const Work = () => {
                             width="141.795482"
                             height="10.701546"
                             transform="matrix(.750432 0.660948-.660948 0.750432 137.619946 44.266147)"
-                            fill="#d2dbed"
+                            fill="currentColor"
+
                             />
                             <rect
                             width="141.795482"
                             height="10.701546"
                             transform="matrix(.687963-.781105 0.750432 0.660948 132.275248 248.660691)"
-                            fill="#d2dbed"
+                            fill="currentColor"
+
                             />
                         </g>
                         </svg>
@@ -146,13 +156,17 @@ export const Work = () => {
                             width="141.795482"
                             height="10.701546"
                             transform="matrix(.750432 0.660948-.660948 0.750432 100.332654 44.266147)"
-                            fill="#d2dbed"
+                            fill="currentColor"
+
+
                             />
                             <rect
                             width="141.795482"
                             height="10.701546"
                             transform="matrix(.687963-.781105 0.750432 0.660948 94.987956 248.660691)"
-                            fill="#d2dbed"
+                            fill="currentColor"
+
+
                             />
                         </g>
                         </svg>
@@ -169,13 +183,14 @@ export const Work = () => {
                             width="141.795482"
                             height="10.701546"
                             transform="matrix(.750432 0.660948-.660948 0.750432 100.332654 44.266147)"
-                            fill="#d2dbed"
+                            fill="currentColor"
                             />
                             <rect
                             width="141.795482"
                             height="10.701546"
                             transform="matrix(.687963-.781105 0.750432 0.660948 94.987956 248.660691)"
-                            fill="#d2dbed"
+                            fill="currentColor"
+
                             />
                         </g>
                         </svg>
@@ -192,13 +207,15 @@ export const Work = () => {
                             width="141.795482"
                             height="10.701546"
                             transform="matrix(.750432 0.660948-.660948 0.750432 137.619946 44.266147)"
-                            fill="#d2dbed"
+                            fill="currentColor"
+
                             />
                             <rect
                             width="141.795482"
                             height="10.701546"
                             transform="matrix(.687963-.781105 0.750432 0.660948 132.275248 248.660691)"
-                            fill="#d2dbed"
+                            fill="currentColor"
+
                             />
                         </g>
                         </svg>
