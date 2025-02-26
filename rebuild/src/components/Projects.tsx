@@ -49,16 +49,16 @@ export const Projects = () => {
     };
 
     return (
-        <div id="projects" className="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center sm:py-12 pt-12">
+        <div id="projects" className="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center py-12 pt-12">
             <div className="max-w-prose text-left justify-center">
                 <div className="space-y-6">
                     {/* Header Section */}
-                    <div className="flex sm:flex-row sm:items-center justify-between">
+                    <div className="flex sm:flex-row items-center justify-between">
                         <h1 className="text-2xl font-bold text-gray-900 dark:text-zinc-50">
                             Projects
                         </h1>
 
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-4 my-4">
                             {/* Custom Dropdown */}
                             <div className="relative" ref={dropdownRef} onBlur={handleBlur}>
                                 <button

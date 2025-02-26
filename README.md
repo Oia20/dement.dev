@@ -3,9 +3,9 @@
 
 ## TODO ON REBUILD
 
-- Responsiveness improvements
+- X Responsiveness improvements
 - Improve light theming
-- Spacing adjustments
+- X Spacing adjustments
 - X Nav corrections, and scroll to correct section
 - Cursor follower.
 - Add all projects
