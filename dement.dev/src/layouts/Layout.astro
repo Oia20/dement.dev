@@ -1,24 +1,30 @@
+---
+import '../styles/global.css';
+
+---
+
 <!doctype html>
-<html lang="en">
+
+<html lang="en" class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/jd-favicon.png" />
+		<link rel="icon" type="image/svg+xml" href="./man.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Jacob Dement - About & Projects</title>
-		<meta name="description" content="Jacob Dement - A Software Engineer who loves building useful, fun, and creative software! I also freelance, and stay active in many developer communites!" />
-		<meta name="keywords" content="Jacob Dement, projects, about, web development, portfolio, Jacob, Dement, Software Engineer, Jacob Dement Software" />
-		<meta name="author" content="Jacob Dement" />
-		<meta property="og:title" content="Jacob Dement - About & Projects" />
-		<meta property="og:description" content="Jacob Dement - A Software Engineer who loves building useful, fun, and creative software! I also freelance, and stay active in many developer communites!" />
-		<meta property="og:image" content="/jd-favicon.png" />
-		<meta property="og:url" content="https://jacob.dement.dev/" />
-		<meta name="twitter:card" content="/jd-favicon.png" />
-		<meta name="twitter:title" content="Jacob Dement - About & Projects" />
-		<meta name="twitter:description" content="Jacob Dement - A Software Engineer who loves building useful, fun, and creative software! I also freelance, and stay active in many developer communites!" />
-		<meta name="twitter:image" content="/jd-favicon.pngg" />
-		<link rel="canonical" href="https://jacob.dement.dev/" />
-		<link rel="sitemap" href="/sitemap-index.xml" />
+		<title>Jacob Dement | Dement.dev</title>
+		<script is:inline>
+			document.documentElement.classList.toggle(
+			"dark",
+			localStorage.theme === "dark" ||
+				(!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+			);
+			// Whenever the user explicitly chooses light mode
+			// localStorage.theme = "light";
+			// Whenever the user explicitly chooses dark mode
+			// localStorage.theme = "dark";
+			// Whenever the user explicitly chooses to respect the OS preference
+			// localStorage.removeItem("theme");
+		</script>
 	</head>
 	<body>
 		<slot />
@@ -32,4 +38,14 @@
 		width: 100%;
 		height: 100%;
 	}
+
+	html {
+        background-color: white;
+		transition: background-color .5s ease;
+    }
+
+    html.dark {
+        background-color:  #18181b; /* dark background color */
+		transition: background-color .5s ease;
+    }
 </style>
