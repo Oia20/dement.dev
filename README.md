@@ -8,3 +8,4 @@
 - SVG not showing in nav.
 - improve spacing of projects.
 - Them switcher is being buggy.
+- Add in SEO tags.
