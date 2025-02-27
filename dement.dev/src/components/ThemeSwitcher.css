@@ -4,6 +4,7 @@
     justify-content: center;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     animation: rotate 1s infinite linear;
+    will-change: transform, opacity; /* Hint to the browser */
 }
 
 .theme-icon.loaded {
@@ -15,6 +16,10 @@
     height: 100%;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    transform: translateZ(0); 
+    -webkit-transform: translateZ(0); 
+    backface-visibility: hidden; 
+    -webkit-backface-visibility: hidden;
 }
 
 .theme-icon.loaded #light {
@@ -43,6 +48,9 @@
 @keyframes fadeIn {
     0% {
         opacity: 0;
+    }
+    99% {
+        opacity: 0.99; /* Almost fully opaque */
     }
     100% {
         opacity: 1;
