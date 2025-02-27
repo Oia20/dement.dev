@@ -149,7 +149,7 @@ export const Projects = () => {
                                 key={project.name}
                                 className="opacity-0 translate-y-4 animate-fade-in-up 
                                          transition-all duration-300 mb-2 pb-2
-                                         border-b border-gray-200 dark:border-zinc-800"
+                                         border-b border-gray-200 dark:border-zinc-800 mt-4"
                                 style={{
                                     animation: `fadeInUp 0.5s ease-out ${index * 0.1}s forwards`
                                 }}
@@ -160,7 +160,7 @@ export const Projects = () => {
                                 <p className="text-gray-600 dark:text-zinc-300 mb-2">
                                     {project.description}
                                 </p>
-                                <div className='flex justify-end gap-4'>
+                                <div className='flex justify-end gap-4 mb-2'>
                                     {project.github && (
                                         <div className="flex flex-row items-center gap-1 group text-zinc-900 dark:text-zinc-100 hover:text-zinc-400 transition-colors duration-200 hover:cursor-pointer"
                                         onClick={() => window.open(project.github, "_blank")}

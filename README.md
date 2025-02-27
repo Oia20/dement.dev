@@ -6,6 +6,6 @@
 
 - Cursor follower.
 - X SVG not showing in nav.
-- improve spacing of projects.
+- X improve spacing of projects.
 - X Them switcher is being buggy.
 - Add in SEO tags.
