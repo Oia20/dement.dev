@@ -230,7 +230,7 @@ export const Work = () => {
               RAB
             </h2>
             <p className="dark:text-zinc-300 text-gray-600 leading-relaxed max-w-prose italic">
-                Contruction Laborer
+              Construction Laborer
             </p>
             <p className="dark:text-zinc-300 text-gray-600 leading-relaxed max-w-prose mb-4 italic">
                 June 2022 - July 2024
