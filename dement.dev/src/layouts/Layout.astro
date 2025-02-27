@@ -13,17 +13,13 @@ import '../styles/global.css';
 		<meta name="generator" content={Astro.generator} />
 		<title>Jacob Dement | Dement.dev</title>
 		<script is:inline>
+			if (!("theme" in localStorage)) {
+				localStorage.theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+			}
 			document.documentElement.classList.toggle(
-			"dark",
-			localStorage.theme === "dark" ||
-				(!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+				"dark",
+				localStorage.theme === "dark"
 			);
-			// Whenever the user explicitly chooses light mode
-			// localStorage.theme = "light";
-			// Whenever the user explicitly chooses dark mode
-			// localStorage.theme = "dark";
-			// Whenever the user explicitly chooses to respect the OS preference
-			// localStorage.removeItem("theme");
 		</script>
 	</head>
 	<body>
