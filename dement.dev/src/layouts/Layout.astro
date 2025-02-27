@@ -1,47 +1,132 @@
 ---
 import '../styles/global.css';
 
+// SEO Props
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: 'website' | 'article';
+  publishDate?: Date;
+  author?: string;
+  keywords?: string[];
+}
+
+// Safe URL construction
+const siteUrl = import.meta.env.SITE || 'https://dement.dev';
+
+const {
+  title = "Jacob Dement | Software Engineer",
+  description = "Person website of Jacob Dement, software engineer, showcasing projects, skills, professional experience, and more.",
+  image = "./favicon.svg",
+  canonicalURL = new URL(Astro.url.pathname, siteUrl).toString(),
+  type = "website",
+  publishDate,
+  author = "Jacob Dement",
+  keywords = ["web developer", "portfolio", "full stack", "software engineer", "Jacob Dement", "Jacob", "Dement", "JacobDement", "JacobDement.dev", "Jacob Dement Dev", "Jacob Dement Developer", "Jacob Dement Software Engineer", "Jacob Dement Web Developer", "Jacob Dement Full Stack Web Developer", "Jacob Dement JavaScript Developer", "Jacob Dement Software Developer", "Jacob Dement Web Developer", "Jacob Dement Full Stack Developer", "Jacob Dement JavaScript Web Developer", "Jacob Dement Software Web Developer", "Jacob Dement Web Software Developer"],
+} = Astro.props;
 ---
 
 <!doctype html>
-
 <html lang="en" class="dark">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="./man.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Jacob Dement | Dement.dev</title>
-		<script is:inline>
-			if (!("theme" in localStorage)) {
-				localStorage.theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-			}
-			document.documentElement.classList.toggle(
-				"dark",
-				localStorage.theme === "dark"
-			);
-		</script>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon.svg">
+    <link rel="manifest" href="/site.webmanifest">
+	<link rel="sitemap" href="/sitemap-index.xml" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content={author} />
+    <meta name="generator" content={Astro.generator} />
+    {keywords.length > 0 && <meta name="keywords" content={keywords.join(", ")} />}
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, siteUrl).toString()} />
+    <meta property="og:site_name" content="Dement.dev" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, siteUrl).toString()} />
+    
+    <!-- If it's an article, add publish date -->
+    {publishDate && <meta property="article:published_time" content={publishDate.toISOString()} />}
+    
+    <!-- Robots and Other SEO -->
+    <meta name="robots" content="index, follow" />
+    
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": type === "article" ? "Article" : "WebSite",
+      "headline": title,
+      "description": description,
+      "image": new URL(image, siteUrl).toString(),
+      "url": canonicalURL,
+      "author": {
+        "@type": "Person",
+        "name": author
+      },
+      ...(publishDate && {
+        "datePublished": publishDate.toISOString()
+      })
+    })} />
+    
+    <!-- Color theme script -->
+    <script is:inline>
+      if (!("theme" in localStorage)) {
+        localStorage.theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark"
+      );
+    </script>
+    
+    <!-- Preload critical assets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-	html {
-        background-color: white;
-		transition: background-color .5s ease;
-    }
+  html {
+    background-color: white;
+    transition: background-color .5s ease;
+  }
 
-    html.dark {
-        background-color:  #18181b; /* dark background color */
-		transition: background-color .5s ease;
-    }
+  html.dark {
+    background-color: #18181b; /* dark background color */
+    transition: background-color .5s ease;
+  }
 </style>
