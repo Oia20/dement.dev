@@ -68,6 +68,7 @@ const AnimatedManLogo = () => {
     // Add event listeners for both mouse and touch events
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('touchmove', handleMouseMove, { passive: true });
+    window.addEventListener('touchstart', handleMouseMove, { passive: true });
     window.addEventListener('mouseleave', () => {
       setRotation({ x: 0, y: 0 });
       setEyePosition({
@@ -92,6 +93,7 @@ const AnimatedManLogo = () => {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('touchmove', handleMouseMove);
+      window.removeEventListener('touchstart', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseMove);
       clearInterval(blinkInterval); // Clean up blink interval
       clearInterval(nodInterval); // Clean up nod interval
@@ -108,6 +110,8 @@ const AnimatedManLogo = () => {
         viewBox="0 0 300 300"
         shapeRendering="geometricPrecision"
         textRendering="geometricPrecision"
+        width="100%"
+        height="100%"
         style={{
           transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) rotateX(${headNod}deg)`, // Apply head nod (up/down)
           transition: 'transform 0.1s ease-out'
