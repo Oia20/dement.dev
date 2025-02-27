@@ -40,7 +40,7 @@ export const Work = () => {
             </p>
             <div className='flex justify-end gap-4 mt-2'>
                 <div className="flex flex-row items-center gap-1 group text-zinc-900 dark:text-zinc-100 hover:text-zinc-400 transition-colors duration-200 hover:cursor-pointer"
-                onClick={() => window.open("https://github.com/formbee/formbee", "_blank")}
+                onClick={() => window.location.href = "https://github.com/Formbee/formbee"}
                 >
                 <p
                 className=""
@@ -134,7 +134,7 @@ export const Work = () => {
 
             
                 <div className="flex flex-row items-center gap-1 group text-zinc-900 dark:text-zinc-100 hover:text-zinc-400 transition-colors duration-200 hover:cursor-pointer"
-                onClick={() => window.open("https://formbee.dev", "_blank")}
+                onClick={() => window.location.href = "https://formbee.dev"}
                 >
                 <p
                 className=""

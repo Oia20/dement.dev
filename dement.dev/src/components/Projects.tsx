@@ -163,7 +163,7 @@ export const Projects = () => {
                                 <div className='flex justify-end gap-4 mb-2'>
                                     {project.github && (
                                         <div className="flex flex-row items-center gap-1 group text-zinc-900 dark:text-zinc-100 hover:text-zinc-400 transition-colors duration-200 hover:cursor-pointer"
-                                        onClick={() => window.open(project.github, "_blank")}
+                                        onClick={() => window.location.href = project.github}
                                         >
                                         <p
                                         className=""
@@ -257,7 +257,7 @@ export const Projects = () => {
                                     )}
                                     {project.link && (
                                         <div className="flex flex-row items-center gap-1 group text-zinc-900 dark:text-zinc-100 hover:text-zinc-400 transition-colors duration-200 hover:cursor-pointer"
-                                        onClick={() => window.open(project.link, "_blank")}
+                                        onClick={() => window.location.href = project.link}
                                         >
                                         <p
                                         className=""
