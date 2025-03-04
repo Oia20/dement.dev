@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { BlogCatalogy } from '../../components/BlogCatalogy';
+import {Nav} from '../../components/Nav'
+import { Footer } from '../../components/Footer';
+---
+
+<Layout>
+    <Nav client:load/>
+    <BlogCatalogy/>
+    <Footer/>
+</Layout>
