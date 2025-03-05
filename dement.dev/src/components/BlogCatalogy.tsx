@@ -1,5 +1,21 @@
 
+
 export const BlogCatalogy = () => {
+    type Post = {
+        title: string;
+        description: string;
+        date: string;
+        path: string;
+    }
+    const posts = [
+        {
+            title: "Railway Functions - The fastest way to deploy your serverless functions",
+            description: "A look at how to use Railway Functions in your project",
+            date: "2023-01-01",
+            path: "/blog/railway"
+        },
+    ]
+
 
     return (
         <div id="blog-catalogy" className="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center py-12">
@@ -12,96 +28,25 @@ export const BlogCatalogy = () => {
                 </p>
             </div>
             <div className="flex flex-col items-start gap-4 mt-4">
-
-                <div className="flex flex-row items-center gap-1 group text-zinc-900 dark:text-zinc-100 hover:text-zinc-400 transition-colors duration-200 hover:cursor-pointer"
-                onClick={() => window.location.href = "https://formbee.dev/blog"}
-                >
-                {/* <p
-                className=""
-                rel="noopener noreferrer"
-                >                
-                View All
-                </p> */}
-                <div className="relative w-4 h-4">
-                    <div className="arrow-container">
-                    {/* Left arrow */}
-                        {/* <svg
-                        viewBox="0 0 300 300"
-                        shapeRendering="geometricPrecision"
-                        textRendering="geometricPrecision"
-                        className="arrow arrow-left"
-                        >
-                        <g transform="translate(100 -.000001)">
-                            <rect
-                            width="141.795482"
-                            height="10.701546"
-                            transform="matrix(.750432 0.660948-.660948 0.750432 100.332654 44.266147)"
-                            fill="currentColor"
-
-
-                            />
-                            <rect
-                            width="141.795482"
-                            height="10.701546"
-                            transform="matrix(.687963-.781105 0.750432 0.660948 94.987956 248.660691)"
-                            fill="currentColor"
-
-
-                            />
-                        </g>
-                        </svg>
-
-                        {/* Center arrow */}
-                        {/* <svg
-                        viewBox="0 0 300 300"
-                        shapeRendering="geometricPrecision"
-                        textRendering="geometricPrecision"
-                        className="arrow arrow-center"
-                        >
-                        <g transform="translate(.000001 0)">
-                            <rect
-                            width="141.795482"
-                            height="10.701546"
-                            transform="matrix(.750432 0.660948-.660948 0.750432 100.332654 44.266147)"
-                            fill="currentColor"
-                            />
-                            <rect
-                            width="141.795482"
-                            height="10.701546"
-                            transform="matrix(.687963-.781105 0.750432 0.660948 94.987956 248.660691)"
-                            fill="currentColor"
-
-                            />
-                        </g>
-                        </svg>
-
-                        {/* Right arrow */}
-                        {/* <svg
-                        viewBox="0 0 300 300"
-                        shapeRendering="geometricPrecision"
-                        textRendering="geometricPrecision"
-                        className="arrow arrow-right"
-                        >
-                        <g transform="translate(-135.000501 0)">
-                            <rect
-                            width="141.795482"
-                            height="10.701546"
-                            transform="matrix(.750432 0.660948-.660948 0.750432 137.619946 44.266147)"
-                            fill="currentColor"
-
-                            />
-                            <rect
-                            width="141.795482"
-                            height="10.701546"
-                            transform="matrix(.687963-.781105 0.750432 0.660948 132.275248 248.660691)"
-                            fill="currentColor"
-
-                            />
-                        </g>
-                        </svg>  */}
+                {posts.map((post) => (
+                    <div key={post.path} className="flex flex-col items-start gap-4 border-b border-gray-200 dark:border-zinc-700 pb-4 max-w-prose">
+                        <div className="flex flex-col gap-2">
+                            <h2 className="text-xl font-bold text-gray-900 dark:text-zinc-50">
+                                <a href={post.path} className="transition-colors hover:text-gray-700 dark:hover:text-zinc-300">
+                                    {post.title}
+                                </a>
+                            </h2>
+                            <p className="dark:text-zinc-300 text-gray-600 leading-relaxed max-w-prose">
+                                {post.description}
+                            </p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <p className="text-sm text-gray-500 dark:text-zinc-400">
+                                {post.date}
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </div>
+                ))}
             </div>
         </div>
     );
