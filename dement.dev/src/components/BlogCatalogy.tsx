@@ -10,6 +10,7 @@ export const BlogCatalogy = () => {
                 date: "03/07/2025",
                 path: "/blog/railway",
                 viewCountURL: "https://function-bun-production-cbf5.up.railway.app/",
+                postId: 1,
                 viewCount: 0,
             },
         ]
@@ -22,21 +23,26 @@ export const BlogCatalogy = () => {
         date: string;
         path: string;
         viewCountURL: string;
+        postId: number;
         viewCount: number;
     }
 
     useEffect(() => {
         for (const post of posts) {
-            fetch(post.viewCountURL)
+            fetch(`${post.viewCountURL}api/views`)
                 .then((response) => response.json())
                 .then((data) => {
+                    console.log("data:", data);
                     setPosts((prevPosts) => {
                         const updatedPosts = prevPosts.map((prevPost) => {
-                            console.log(prevPost.path);
-                            if (prevPost.path === post.path) {
+                            console.log(prevPost.postId);
+                            if (prevPost.postId === post.postId) {
+                                console.log("prevPost.postId:", prevPost.postId);
+                                console.log("post.postId:", post.postId);
+                                console.log("data.view_count:", data[prevPost.postId - 1].view_count);
                                 return {
                                     ...prevPost,
-                                    viewCount: data.count,
+                                    viewCount: data[prevPost.postId - 1].view_count,
                                 };
                             }
                             return prevPost;
@@ -46,6 +52,27 @@ export const BlogCatalogy = () => {
                 });
         }
     }, []);
+
+    const incrementViewCount = async (post: Post) => {
+        const response = await fetch(`https://function-bun-production-cbf5.up.railway.app/api/views/${post.postId}`, {
+            method: 'POST'
+          });;
+        const data = await response.json();
+        console.log(data);
+        setPosts((prevPosts) => {
+            const updatedPosts = prevPosts.map((prevPost) => {
+                if (prevPost.path === post.path) {
+                    return {
+                        ...prevPost,
+                        viewCount: data.view_count,
+                    };
+                }
+                return prevPost;
+            });
+            return updatedPosts;
+        });
+    };
+
 
 
     return (
@@ -63,7 +90,7 @@ export const BlogCatalogy = () => {
                     <div key={post.path} className="flex flex-col items-start gap-4 border-b border-gray-200 dark:border-zinc-700 pb-4 max-w-prose">
                         <div className="flex flex-col gap-2">
                             <h2 className="text-xl font-bold text-gray-900 dark:text-zinc-50">
-                                <a href={post.path} className="transition-colors hover:text-gray-700 dark:hover:text-zinc-300">
+                                <a onClick={() => incrementViewCount(post)} className="transition-colors hover:text-gray-700 dark:hover:text-zinc-300">
                                     {post.title}
                                 </a>
                             </h2>
