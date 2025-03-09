@@ -5,8 +5,8 @@ export const BlogCatalogy = () => {
     const [posts, setPosts] = useState<Post[]>(
         [
             {
-                title: "Railway Functions - The fastest way to deploy your serverless functions",
-                description: "A look at how to use Railway Functions in your project",
+                title: "Railway Functions Blew Me Away.",
+                description: "A look at Railway functions - the most convenient way to deploy serverless functions I've seen. & how I implemented a blog post view counter using Railway Functions.",
                 date: "03/07/2025",
                 path: "/blog/railway",
                 viewCountURL: "https://function-bun-production-cbf5.up.railway.app/",
@@ -90,7 +90,7 @@ export const BlogCatalogy = () => {
                     <div key={post.path} className="flex flex-col items-start gap-4 border-b border-gray-200 dark:border-zinc-700 pb-4 max-w-prose">
                         <div className="flex flex-col gap-2">
                             <h2 className="text-xl font-bold text-gray-900 dark:text-zinc-50">
-                                <a onClick={() => incrementViewCount(post)} className="transition-colors hover:text-gray-700 dark:hover:text-zinc-300">
+                                <a href="/blog/railway" onClick={() => incrementViewCount(post)} className="transition-colors hover:text-gray-700 dark:hover:text-zinc-300">
                                     {post.title}
                                 </a>
                             </h2>

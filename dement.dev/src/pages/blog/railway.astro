@@ -3,7 +3,15 @@ import Layout from '../../layouts/Layout.astro';
 import {Nav} from '../../components/Nav'
 ---
     <Layout>
-      <h1>Railway Functions</h1>
       <Nav client:load/>
-
+      <div id="blog-catalogy" class="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center py-12">
+        <div class="max-w-2xl text-left justify-center pb-4 border-b border-gray-200 dark:border-zinc-700">
+            <h1 class="text-2xl font-bold text-gray-900 mb-2 transition-colors dark:text-zinc-50">
+              Railway Functions Blew Me Away.
+            </h1>
+            <p class="dark:text-zinc-300 text-gray-600 leading-relaxed max-w-prose italic">
+              A look at Railway functions - the most convenient way to deploy serverless functions I've seen. & how I implemented a blog post view counter using Railway Functions.
+            </p>
+          </div>
+        </div>
     </Layout>
