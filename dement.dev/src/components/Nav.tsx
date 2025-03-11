@@ -5,6 +5,13 @@ import "./Nav.css"; // Import the CSS file
 export const Nav = () => {
   const handleScroll = (event: any, targetId: string) => {
     event.preventDefault();
+    if (window.location.pathname != "/") {
+      window.location.href = `/`;
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: "smooth", block: "center" });

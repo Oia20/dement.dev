@@ -100,11 +100,15 @@ const AnimatedManLogo = () => {
     };
   }, []);
 
+  const handleClick = () => {
+    window.location.href = "/";
+  };
   return (
     <div
       ref={containerRef}
       className="flex justify-center items-center w-full h-full"
       style={{ overflow: 'visible' }}
+      onClick={handleClick}
     >
       <svg
         viewBox="0 0 300 300"
