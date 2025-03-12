@@ -4,14 +4,35 @@ import {Nav} from '../../components/Nav'
 ---
     <Layout>
       <Nav client:load/>
-      <div id="blog-catalogy" class="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center py-12">
-        <div class="max-w-2xl text-left justify-center pb-4 border-b border-gray-200 dark:border-zinc-700">
-            <h1 class="text-2xl font-bold text-gray-900 mb-2 transition-colors dark:text-zinc-50">
-              Railway Functions Blew Me Away.
-            </h1>
-            <p class="dark:text-zinc-300 text-gray-600 leading-relaxed max-w-prose italic">
-              A look at Railway functions - the most convenient way to deploy serverless functions I've seen. & how I implemented a blog post view counter using Railway Functions.
-            </p>
+      <article id="blog-catalog" class="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center py-12">
+        <div class="max-w-2xl w-full text-left justify-center pb-6 border-b border-gray-200 dark:border-zinc-700">
+          <h1 class="text-4xl font-bold text-gray-900 mb-4 transition-colors dark:text-zinc-50 leading-tight">
+            Railway Functions Blew Me Away.
+          </h1>
+          <p class="dark:text-zinc-300 text-gray-600 leading-relaxed italic text-xl mb-2">
+            A look at Railway functions - the most convenient way I've seen to deploy serverless functions & how I implemented a blog post view counter using them.
+          </p>
+          <div class="flex items-center mt-4 text-sm text-gray-500 dark:text-zinc-400">
+            <span>March 12, 2025</span>
+            <span class="mx-2">•</span>
+            <span>x min read</span>
+            <span class="mx-2">•</span>
+            <span></span>
           </div>
         </div>
+        
+        <div class="dark:text-zinc-300 text-gray-600 leading-relaxed max-w-2xl w-full mt-8">
+          <p class="mb-6 text-xl">
+            I've been using <a class="text-amber-300" href="https://railway.com">Railway</a> for a while now for pretty much everything I build. Usually a Postgres DB + a docker containerized server. This has worked out great for me,
+            and I love the convenience, and ecosystem that Railway provides. In this blog post I want
+            to cover what Railway functions are, how you can get started with them, and a quick walk through of how I implemented a blog post view counter using them.
+          </p>
+          
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-zinc-50 mt-10 mb-4">
+            What are Railway Functions?
+          </h2>
+          <p class="mb-6">
+          </p>
+        </div>
+      </article>
     </Layout>

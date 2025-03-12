@@ -8,7 +8,7 @@ export const BlogCatalogy = () => {
         [
             {
                 title: "Railway Functions Blew Me Away.",
-                description: "A look at Railway functions - the most convenient way to deploy serverless functions I've seen. & how I implemented a blog post view counter using Railway Functions.",
+                description: "A look at Railway functions - the most convenient way I've seen to deploy serverless functions & how I implemented a blog post view counter using Railway functions.",
                 date: "03/07/2025",
                 path: "/blog/railway",
                 viewCountURL: "https://function-bun-production-cbf5.up.railway.app/",
