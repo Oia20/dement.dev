@@ -1,11 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import {Nav} from '../../components/Nav'
+import { Footer } from '../../components/Footer';
 ---
     <Layout>
       <Nav client:load/>
-      <article id="blog-catalog" class="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start px-8 pt-2 sm:items-center py-12">
-        <div class="max-w-2xl w-full text-left justify-center pb-6 border-b border-gray-200 dark:border-zinc-700">
+      <article id="blog-catalog" class="transition duration-500 ease-in-out dark:bg-zinc-900 bg-gray-50 flex flex-col items-start pt-2 sm:items-center py-12 max-w-prose mx-auto">
+        <div class="max-w-2xl text-left justify-center pb-6 border-b border-gray-200 dark:border-zinc-700">
           <h1 class="text-4xl font-bold text-gray-900 mb-4 transition-colors dark:text-zinc-50 leading-tight">
             Railway Functions Blew Me Away.
           </h1>
@@ -21,7 +22,10 @@ import {Nav} from '../../components/Nav'
           </div>
         </div>
         
-        <div class="dark:text-zinc-300 text-gray-600 leading-relaxed max-w-2xl w-full mt-8">
+        <div class="dark:text-zinc-300 text-gray-600 leading-relaxed max-w-2xl w-full">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-zinc-50 mt-10 mb-4">
+            Intro + Background
+          </h2>
           <p class="mb-6 text-xl">
             I've been using <a class="text-amber-300" href="https://railway.com">Railway</a> for a while now for pretty much everything I build. Usually a Postgres DB + a docker containerized server. This has worked out great for me,
             and I love the convenience, and ecosystem that Railway provides. In this blog post I want
@@ -31,8 +35,11 @@ import {Nav} from '../../components/Nav'
           <h2 class="text-2xl font-semibold text-gray-900 dark:text-zinc-50 mt-10 mb-4">
             What are Railway Functions?
           </h2>
-          <p class="mb-6">
+          <p class="mb-6 text-xl">
+            If you're familiar with AWS Lambda, Railway functions are very similar with a few added conveniences, limitations, and benefits.
+
           </p>
         </div>
       </article>
+      <Footer/>
     </Layout>
